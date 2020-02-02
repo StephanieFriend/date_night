@@ -78,8 +78,18 @@ class BinarySearchTree
     return min(node.left_node)
   end
 
-  def sort
-    #TODO: to implement
+  def sort(node = @root_node, sorted_list = [])
+    if node.left_node != nil
+      sort(node.left_node, sorted_list)
+    end
+
+    sorted_list << {node.title => node.rating}
+
+    if node.right_node != nil
+      sort(node.right_node, sorted_list)
+    end
+
+    return sorted_list
   end
 
   def load

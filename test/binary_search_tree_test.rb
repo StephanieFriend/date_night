@@ -75,4 +75,28 @@ class BinarySearchTreeTest < Minitest::Test
 
     assert_equal expected, tree.min
   end
+
+  def test_it_can_sort_by_rating
+    tree = BinarySearchTree.new
+
+    tree.insert(5, "Place 4")
+    tree.insert(3, "Place 2")
+    tree.insert(7, "Place 6")
+    tree.insert(1, "Place 1")
+    tree.insert(4, "Place 3")
+    tree.insert(6, "Place 5")
+    tree.insert(8, "Place 7")
+
+    expected = [
+        {"Place 1" => 1},
+        {"Place 2" => 3},
+        {"Place 3" => 4},
+        {"Place 4" => 5},
+        {"Place 5" => 6},
+        {"Place 6" => 7},
+        {"Place 7" => 8}
+    ]
+
+    assert_equal expected, tree.sort
+  end
 end
