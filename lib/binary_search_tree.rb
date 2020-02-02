@@ -31,29 +31,23 @@ class BinarySearchTree
   end
 
   def include?(rating, node = @root_node)
-    if rating == node
+    if node == nil
+      return false
+    end
+
+    if rating == node.rating
       return true
     end
 
     if rating > node.rating
-      return node.right_node == nil ? false : include?(rating, node.right_node)
-      # if node.right_node == nil
-      #   return false
-      # else
-      #   return include?(rating, node.right_node)
-      # end
+      return include?(rating, node.right_node)
     else
-      return node.left_node == nil ? false : include?(rating, node.left_node)
-      # if node.left_node == nil
-      #   return false
-      # else
-      #   return include?(rating, node.left_node)
-      # end
+      return include?(rating, node.left_node)
     end
   end
 
-  def depth_of
-    #TODO: to implement
+  def depth_of(rating)
+
   end
 
   def max
