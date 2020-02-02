@@ -46,8 +46,20 @@ class BinarySearchTree
     end
   end
 
-  def depth_of(rating)
+  def depth_of(rating, node = @root_node, depth = 0)
+    if node == nil
+      return nil
+    end
 
+    if rating == node.rating
+      return depth
+    end
+
+    if rating > node.rating
+      return depth_of(rating, node.right_node, depth + 1)
+    else
+      return depth_of(rating, node.left_node, depth + 1)
+    end
   end
 
   def max
