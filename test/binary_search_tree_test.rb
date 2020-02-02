@@ -99,4 +99,18 @@ class BinarySearchTreeTest < Minitest::Test
 
     assert_equal expected, tree.sort
   end
+
+  def test_it_can_flatten
+    tree = BinarySearchTree.new
+
+    tree.insert(5, "Place 4")
+    tree.insert(3, "Place 2")
+    tree.insert(7, "Place 6")
+    tree.insert(1, "Place 1")
+    tree.insert(4, "Place 3")
+    tree.insert(6, "Place 5")
+    tree.insert(8, "Place 7")
+
+    assert_equal [5, 3, 7, 1, 4, 6, 8], tree.flatten_tree
+  end
 end

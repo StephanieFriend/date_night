@@ -99,4 +99,19 @@ class BinarySearchTree
   def health
     #TODO: to implement
   end
+
+  def flatten_tree(node = @root_node, rating_array = [])
+    # rating_array << node.rating
+
+    if node.left_node != nil
+      rating_array << node.left_node.rating
+      flatten_tree(node.left_node, rating_array)
+    end
+    if node.right_node != nil
+      rating_array << node.right_node.rating
+      flatten_tree(node.right_node, rating_array)
+    end
+
+    return rating_array
+  end
 end
