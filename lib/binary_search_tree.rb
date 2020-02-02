@@ -62,12 +62,20 @@ class BinarySearchTree
     end
   end
 
-  def max
-    #TODO: to implement
+  def max(node = @root_node)
+    if node.right_node == nil
+      return {node.title => node.rating}
+    end
+
+    return max(node.right_node)
   end
 
-  def min
-    #TODO: to implement
+  def min(node = @root_node)
+    if node.left_node == nil
+      return {node.title => node.rating}
+    end
+
+    return min(node.left_node)
   end
 
   def sort

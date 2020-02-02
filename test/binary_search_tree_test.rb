@@ -49,4 +49,30 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal 1, tree.depth_of(56)
     assert_equal 0, tree.depth_of(89)
   end
+
+  def test_it_can_return_movie_with_highest_score
+    tree = BinarySearchTree.new
+
+    assert_equal 0, tree.insert(89, "Mowgli")
+    assert_equal 1, tree.insert(56, "Frozen")
+    assert_equal 1, tree.insert(91, "Moana")
+    assert_equal 2, tree.insert(43, "Jungle Book")
+
+    expected = {"Moana" => 91}
+
+    assert_equal expected, tree.max
+  end
+
+  def test_it_can_return_movie_with_lowest_score
+    tree = BinarySearchTree.new
+
+    assert_equal 0, tree.insert(89, "Mowgli")
+    assert_equal 1, tree.insert(56, "Frozen")
+    assert_equal 1, tree.insert(91, "Moana")
+    assert_equal 2, tree.insert(43, "Jungle Book")
+
+    expected = {"Jungle Book" => 43}
+
+    assert_equal expected, tree.min
+  end
 end
