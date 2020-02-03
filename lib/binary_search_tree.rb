@@ -93,7 +93,7 @@ class BinarySearchTree
   end
 
   def load(file_name)
-
+    File.foreach(file_name).inject(0) { |count, line| count + 1 }
   end
 
   def health

@@ -104,7 +104,7 @@ class BinarySearchTreeTest < Minitest::Test
     tree = BinarySearchTree.new
 
 
-    assert_equal 8, tree.load("lib/movies.txt").first
+    assert_equal 8, tree.load("lib/movies.txt")
   end
 
   def test_it_can_flatten
