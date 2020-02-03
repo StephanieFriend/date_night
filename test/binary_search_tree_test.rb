@@ -27,10 +27,10 @@ class BinarySearchTreeTest < Minitest::Test
 
     assert_equal false, tree.include?(50)
 
-    assert_equal 0, tree.insert(89, "Mowgli")
-    assert_equal 1, tree.insert(56, "Frozen")
-    assert_equal 1, tree.insert(91, "Moana")
-    assert_equal 2, tree.insert(43, "Jungle Book")
+    tree.insert(89, "Mowgli")
+    tree.insert(56, "Frozen")
+    tree.insert(91, "Moana")
+    tree.insert(43, "Jungle Book")
 
     assert_equal true, tree.include?(56)
     assert_equal false, tree.include?(41)
@@ -41,10 +41,10 @@ class BinarySearchTreeTest < Minitest::Test
 
     assert_equal nil, tree.depth_of(50)
 
-    assert_equal 0, tree.insert(89, "Mowgli")
-    assert_equal 1, tree.insert(56, "Frozen")
-    assert_equal 1, tree.insert(91, "Moana")
-    assert_equal 2, tree.insert(43, "Jungle Book")
+    tree.insert(89, "Mowgli")
+    tree.insert(56, "Frozen")
+    tree.insert(91, "Moana")
+    tree.insert(43, "Jungle Book")
 
     assert_equal 1, tree.depth_of(56)
     assert_equal 0, tree.depth_of(89)
@@ -53,10 +53,10 @@ class BinarySearchTreeTest < Minitest::Test
   def test_it_can_return_movie_with_highest_score
     tree = BinarySearchTree.new
 
-    assert_equal 0, tree.insert(89, "Mowgli")
-    assert_equal 1, tree.insert(56, "Frozen")
-    assert_equal 1, tree.insert(91, "Moana")
-    assert_equal 2, tree.insert(43, "Jungle Book")
+    tree.insert(89, "Mowgli")
+    tree.insert(56, "Frozen")
+    tree.insert(91, "Moana")
+    tree.insert(43, "Jungle Book")
 
     expected = {"Moana" => 91}
 
@@ -66,10 +66,10 @@ class BinarySearchTreeTest < Minitest::Test
   def test_it_can_return_movie_with_lowest_score
     tree = BinarySearchTree.new
 
-    assert_equal 0, tree.insert(89, "Mowgli")
-    assert_equal 1, tree.insert(56, "Frozen")
-    assert_equal 1, tree.insert(91, "Moana")
-    assert_equal 2, tree.insert(43, "Jungle Book")
+    tree.insert(89, "Mowgli")
+    tree.insert(56, "Frozen")
+    tree.insert(91, "Moana")
+    tree.insert(43, "Jungle Book")
 
     expected = {"Jungle Book" => 43}
 
@@ -98,6 +98,13 @@ class BinarySearchTreeTest < Minitest::Test
     ]
 
     assert_equal expected, tree.sort
+  end
+
+  def test_it_can_load_file
+    tree = BinarySearchTree.new
+
+
+    assert_equal 8, tree.load("lib/movies.txt").first
   end
 
   def test_it_can_flatten

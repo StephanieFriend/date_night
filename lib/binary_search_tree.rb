@@ -92,25 +92,34 @@ class BinarySearchTree
     return sorted_list
   end
 
-  def load
-    #TODO: to implement
+  def load(file_name)
+
   end
 
   def health
     #TODO: to implement
   end
 
+  #bredth first traversal
   def flatten_tree(node = @root_node, rating_array = [])
-    # rating_array << node.rating
+    if node == nil
+      return rating_array
+    end
+
+    if rating_array.empty?
+      rating_array << node.rating
+    end
 
     if node.left_node != nil
       rating_array << node.left_node.rating
-      flatten_tree(node.left_node, rating_array)
     end
+
     if node.right_node != nil
       rating_array << node.right_node.rating
-      flatten_tree(node.right_node, rating_array)
     end
+
+    flatten_tree(node.left_node, rating_array)
+    flatten_tree(node.right_node, rating_array)
 
     return rating_array
   end
